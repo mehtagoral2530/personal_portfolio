@@ -1,47 +1,41 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
+import { assetPath } from "@/lib/site-paths";
 import "./globals.css";
 
-const title = "Goral Bhatt | Healthcare Market Research & Data Analyst";
+const siteOrigin =
+  process.env.SITE_ORIGIN ??
+  "https://goral-bhatt-healthcare.mehtagoral2530.chatgpt.site";
+const title = "Goral Bhatt | Healthcare Market Intelligence";
 const description =
-  "Portfolio of Goral Bhatt, a healthcare market research and data analyst focused on evidence-led insights, clinical research support, and strategy analysis.";
+  "Portfolio of Goral Bhatt, a healthcare market intelligence analyst working across medical-device research, competitive intelligence, tracker design, and research synthesis.";
+const socialImage = new URL(assetPath("/healthcare-intelligence-hero.jpg"), siteOrigin).toString();
 
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host = (requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "goral-bhatt-healthcare.mehtagoral2530.chatgpt.site")
-    .split(",")[0]
-    .trim();
-  const forwardedProtocol = requestHeaders.get("x-forwarded-proto")?.split(",")[0].trim();
-  const protocol = forwardedProtocol === "http" ? "http" : "https";
-  const origin = `${protocol}://${host}`;
-
-  return {
-    metadataBase: new URL(origin),
+export const metadata: Metadata = {
+  metadataBase: new URL(siteOrigin),
+  title,
+  description,
+  openGraph: {
+    type: "website",
+    url: "/",
     title,
     description,
-    openGraph: {
-      type: "website",
-      url: origin,
-      title,
-      description,
-      siteName: "Goral Bhatt",
-      images: [
-        {
-          url: `${origin}/healthcare-intelligence-hero.jpg`,
-          width: 1408,
-          height: 912,
-          alt: "Goral Bhatt — healthcare market intelligence",
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [`${origin}/healthcare-intelligence-hero.jpg`],
-    },
-  };
-}
+    siteName: "Goral Bhatt",
+    images: [
+      {
+        url: socialImage,
+        width: 1408,
+        height: 912,
+        alt: "Goral Bhatt — healthcare market intelligence",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [socialImage],
+  },
+};
 
 export default function RootLayout({
   children,
@@ -50,7 +44,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <head>
+        <meta
+          name="impeccable-direction"
+          content="Healthcare Intelligence Fieldbook — seed ed15bcb8"
+        />
+      </head>
+      <body>
+        {/*
+          THESIS: A healthcare-intelligence fieldbook, not a résumé arranged as cards.
+          OWN-WORLD: Existing paper, coral, sage, sky, and lavender become full research fields and indexed tabs; ink anchors all type.
+          STORY: Recruiters move from fit to real research work to career context to contact without decoding visual decoration.
+          FIRST VIEWPORT: A research-brief title crosses the page beside the approved evidence image and a decisive work CTA.
+          FORM: Fieldbook evidence plates; seed ed15bcb8.
+          FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md.
+        */}
+        {children}
+      </body>
     </html>
   );
 }

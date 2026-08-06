@@ -1,29 +1,39 @@
 import { SiteHeader } from "@/components/SiteHeader";
+import { assetPath } from "@/lib/site-paths";
 
-const caseStudies = [
+const researchStreams = [
   {
     field: "Medical-device intelligence",
+    tone: "sage",
     title: "U.S. medical-device market intelligence",
     description:
       "Supported recurring client research by connecting product, pricing, competitor, and regulatory developments in clear Excel outputs and written analysis.",
     scope: "3 U.S. client programs each month",
     evidence: "Product, pricing, competitor, and regulatory activity",
+    deliverable: "Recurring Excel research outputs and written market analysis for client teams",
+    signals: ["Product", "Pricing", "Competitor", "Regulation"],
   },
   {
     field: "Tracker design & analysis",
+    tone: "sky",
     title: "Competitive intelligence tracker",
     description:
       "Built and maintained living trackers that made availability, ASP signals, FDA activity, competitor movement, and coverage gaps easier to compare over time.",
     scope: "5 maintained client trackers",
     evidence: "Availability, ASP, FDA, competitor, and coverage signals",
+    deliverable: "Living client trackers that brought changing market signals into one comparable view",
+    signals: ["Availability", "ASP", "FDA", "Coverage"],
   },
   {
     field: "Primary research synthesis",
+    tone: "lavender",
     title: "Biosimilar opportunity assessment",
     description:
       "Supported a breast-cancer biosimilar assessment through KOL research, pipeline mapping, and organized market-access insights.",
     scope: "KOL research and pipeline mapping",
     evidence: "Biosimilar market-access context for a breast-cancer opportunity",
+    deliverable: "Confidential client assessment with KOL research, pipeline maps, and market-access synthesis",
+    signals: ["KOL", "Pipeline", "Access", "Opportunity"],
   },
 ];
 
@@ -69,90 +79,166 @@ const experience = [
   },
 ];
 
+const foundations = [
+  {
+    label: "Education",
+    entries: [
+      "Integrated B.Tech + M.Tech in Biotechnology · Amity University Rajasthan · 2016–2021",
+      "Minor Degree in Food Technology · Amity University Rajasthan · 2016–2020",
+    ],
+  },
+  {
+    label: "Credentials",
+    entries: [
+      "Google Data Analytics Certificate",
+      "ICH-GCP E6(R3) · The Global Health Network",
+      "LinkedIn Skill Assessments · Microsoft Excel & Microsoft PowerPoint",
+    ],
+  },
+  {
+    label: "Toolkit",
+    entries: [
+      "Excel · SQL · Data validation · Pivot tables",
+      "Competitive intelligence · Dashboarding · Research documentation",
+    ],
+  },
+];
+
+function ArrowIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 16 16" focusable="false">
+      <path d="M3 8h9M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
+    </svg>
+  );
+}
+
 export default function Home() {
   return (
     <div className="site-shell" id="top">
       <a className="skip-link" href="#content">
         Skip to content
       </a>
+      <div className="fieldbook-spine" aria-hidden="true">
+        <span />
+        <span />
+        <span />
+        <span />
+      </div>
       <SiteHeader />
 
       <main id="content">
-        <section className="hero section-wrap" id="about" aria-labelledby="hero-heading">
-          <div className="hero-copy">
-            <p className="hero-role">Goral Bhatt · Healthcare market intelligence</p>
-            <h1 id="hero-heading">Healthcare market evidence, made usable.</h1>
-            <p className="hero-intro">
-              Healthcare market research, competitive intelligence, tracker design, and research synthesis for medical-device, biosimilar, and strategy teams.
-            </p>
-            <div className="hero-actions">
-              <a className="button button-primary" href="#work">
-                See research contributions <span aria-hidden="true">↓</span>
-              </a>
+        <section className="fieldbook-hero" id="about" aria-labelledby="hero-heading">
+          <div className="section-wrap hero-layout">
+            <div className="hero-identity" aria-hidden="true">
+              <span>Field notes</span>
+              <span>Selected work</span>
             </div>
-            <a className="resume-link" href="/Goral-Bhatt-Resume.pdf" download>
-              Download résumé <span aria-hidden="true">↗</span>
-            </a>
-            <p className="hero-location">Dallas, Texas · Open to healthcare research, data, and strategy opportunities.</p>
-          </div>
 
-          <figure className="hero-image-panel">
-            <img
-              src="/healthcare-intelligence-hero.jpg"
-              alt="Illustration of a professional reviewing healthcare information"
-              width={1408}
-              height={912}
-              fetchPriority="high"
-            />
-          </figure>
+            <div className="hero-copy">
+              <p className="hero-kicker">
+                <span>Goral Bhatt</span>
+                <span>Healthcare market intelligence analyst</span>
+              </p>
+              <h1 id="hero-heading">Research that helps healthcare teams see what matters next.</h1>
+              <p className="hero-intro">
+                Healthcare market research, competitive intelligence, tracker design, and research synthesis for medical-device, biosimilar, and strategy teams.
+              </p>
+              <div className="hero-actions">
+                <a className="action-link action-link--ink" href="#work">
+                  Explore research <ArrowIcon />
+                </a>
+                <a className="action-link action-link--line" href={assetPath("/Goral-Bhatt-Resume.pdf")} download>
+                  Download résumé <ArrowIcon />
+                </a>
+              </div>
+              <p className="hero-location">Dallas, Texas · Open to healthcare research, data, and strategy opportunities.</p>
+            </div>
+
+            <figure className="hero-visual">
+              <div className="hero-image-wrap">
+                {/* eslint-disable-next-line @next/next/no-img-element -- Static GitHub Pages serves this responsive public asset directly. */}
+                <img
+                  src={assetPath("/healthcare-intelligence-hero.jpg")}
+                  alt="Illustration of a professional reviewing healthcare information"
+                  width={1408}
+                  height={912}
+                  fetchPriority="high"
+                />
+              </div>
+              <figcaption>
+                <span>Medical devices</span>
+                <span>Competitive intelligence</span>
+                <span>Biosimilars</span>
+              </figcaption>
+            </figure>
+          </div>
         </section>
 
-        <section className="work-section section-wrap" id="work" aria-labelledby="work-heading">
-          <div className="work-heading">
-            <h2 id="work-heading">Research contributions</h2>
-            <p>
-              Recurring work across medical-device intelligence, structured tracker design, and biosimilar research.
-            </p>
+        <section className="fieldbook-intro" aria-labelledby="work-heading">
+          <div className="section-wrap intro-layout">
+            <p className="section-tab">Research contributions</p>
+            <div>
+              <h2 id="work-heading">Healthcare evidence needs a point of view.</h2>
+              <p>
+                I organize complex market signals into research that teams can compare, discuss, and use. These are the recurring workstreams I have supported.
+              </p>
+            </div>
           </div>
-          <div className="case-list">
-            {caseStudies.map((caseStudy) => (
-              <article className="case-study" key={caseStudy.title}>
-                <div className="case-copy">
-                  <p className="case-field">{caseStudy.field}</p>
-                  <h3>{caseStudy.title}</h3>
-                  <p>{caseStudy.description}</p>
+        </section>
+
+        <section className="work-streams" id="work" aria-label="Research contributions">
+          {researchStreams.map((stream) => (
+            <article className={`work-plate work-plate--${stream.tone}`} key={stream.title}>
+              <div className="section-wrap work-plate-inner">
+                <div className="plate-spine">
+                  <p>{stream.field}</p>
+                  <span aria-hidden="true" />
                 </div>
-                <dl className="case-facts">
-                  <div>
-                    <dt>Scope</dt>
-                    <dd>{caseStudy.scope}</dd>
-                  </div>
-                  <div>
-                    <dt>Evidence handled</dt>
-                    <dd>{caseStudy.evidence}</dd>
-                  </div>
-                </dl>
-              </article>
-            ))}
-          </div>
+                <div className="plate-copy">
+                  <h3>{stream.title}</h3>
+                  <p>{stream.description}</p>
+                  <dl className="plate-facts">
+                    <div>
+                      <dt>Scope</dt>
+                      <dd>{stream.scope}</dd>
+                    </div>
+                    <div>
+                      <dt>Evidence handled</dt>
+                      <dd>{stream.evidence}</dd>
+                    </div>
+                    <div>
+                      <dt>Deliverable</dt>
+                      <dd>{stream.deliverable}</dd>
+                    </div>
+                  </dl>
+                </div>
+                <ul className="signal-list" aria-label={`Signals in ${stream.title}`}>
+                  {stream.signals.map((signal) => (
+                    <li key={signal}>{signal}</li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))}
         </section>
 
-        <section className="experience-section" id="experience" aria-labelledby="experience-heading">
-          <div className="section-wrap">
-            <div className="experience-heading">
-              <h2 id="experience-heading">Experience</h2>
-              <p>Healthcare research, regulated documentation, and scientific foundations.</p>
+        <section className="career-section" id="experience" aria-labelledby="experience-heading">
+          <div className="section-wrap career-layout">
+            <div className="career-heading">
+              <p className="section-tab section-tab--light">Career trace</p>
+              <h2 id="experience-heading">A path through markets, data, and science.</h2>
+              <p>Experience built across healthcare intelligence, pharma market research, regulated documentation, and scientific research.</p>
             </div>
-            <ol className="experience-list">
+            <ol className="career-trace">
               {experience.map((item) => (
-                <li className="timeline-entry" key={`${item.company}-${item.dates}`}>
-                  <div className="timeline-meta">
+                <li className="career-entry" key={`${item.company}-${item.dates}`}>
+                  <div className="career-meta">
                     <time>{item.dates}</time>
                     <p>{item.location}</p>
                   </div>
-                  <div className="timeline-body">
+                  <div className="career-body">
                     <h3>{item.company}</h3>
-                    <p className="timeline-role">{item.role}</p>
+                    <p className="career-role">{item.role}</p>
                     <ul>
                       {item.bullets.map((bullet) => (
                         <li key={bullet}>{bullet}</li>
@@ -165,80 +251,73 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="profile-section" aria-labelledby="profile-heading">
-          <div className="section-wrap profile-grid">
-            <div className="profile-copy">
-              <h2 id="profile-heading">Education &amp; tools</h2>
-              <p>
-                Integrated biotechnology training informs how I approach healthcare questions: with respect for the science, documentation discipline, and the decision a team needs to make.
-              </p>
-              <a className="text-link" href="/Goral-Bhatt-Resume.pdf" download>
-                Read the full résumé <span aria-hidden="true">↗</span>
+        <section className="foundation-section" aria-labelledby="foundation-heading">
+          <div className="section-wrap foundation-layout">
+            <div className="foundation-heading">
+              <p className="section-tab">Foundation</p>
+              <h2 id="foundation-heading">Biotechnology fluency, documentation discipline, and data craft.</h2>
+              <a className="text-action" href={assetPath("/Goral-Bhatt-Resume.pdf")} download>
+                Read the full résumé <ArrowIcon />
               </a>
             </div>
-            <dl className="profile-facts">
-              <div>
-                <dt>Education</dt>
-                <dd>
-                  <strong>Amity University Rajasthan, Jaipur</strong>
-                  <span>Integrated B.Tech + M.Tech in Biotechnology · 2016–2021</span>
-                  <span>Minor Degree in Food Technology · 2016–2020</span>
-                </dd>
-              </div>
-              <div>
-                <dt>Credentials</dt>
-                <dd>
-                  <span>Google Data Analytics Certificate</span>
-                  <span>ICH-GCP E6(R3), The Global Health Network</span>
-                  <span>LinkedIn Skill Assessments: Microsoft Excel &amp; Microsoft PowerPoint</span>
-                </dd>
-              </div>
-              <div>
-                <dt>Toolkit</dt>
-                <dd>
-                  <span>Excel · SQL · Data validation · Pivot tables</span>
-                  <span>Competitive intelligence · Dashboarding</span>
-                </dd>
-              </div>
+            <dl className="foundation-ledger">
+              {foundations.map((foundation) => (
+                <div key={foundation.label}>
+                  <dt>{foundation.label}</dt>
+                  <dd>
+                    {foundation.entries.map((entry) => (
+                      <span key={entry}>{entry}</span>
+                    ))}
+                  </dd>
+                </div>
+              ))}
             </dl>
           </div>
         </section>
 
-        <section className="contact-section section-wrap" id="contact" aria-labelledby="contact-heading">
-          <div className="contact-title">
-            <h2 id="contact-heading">Open to healthcare research and data roles.</h2>
-            <p>
-              I&apos;m available to discuss healthcare research, data analysis, clinical research support, and strategy opportunities.
-            </p>
+        <section className="contact-close" id="contact" aria-labelledby="contact-heading">
+          <div className="section-wrap contact-layout">
+            <p className="section-tab section-tab--light">Get in touch</p>
+            <div>
+              <h2 id="contact-heading">Let&apos;s make a difficult market question easier to act on.</h2>
+              <p>I&apos;m available to discuss healthcare research, data analysis, clinical research support, and strategy opportunities.</p>
+            </div>
+            <address className="contact-links">
+              <a href="mailto:mehtagoral2530@gmail.com">
+                <span>Email</span>
+                <strong>mehtagoral2530@gmail.com</strong>
+                <ArrowIcon />
+              </a>
+              <a href="tel:+14129059023">
+                <span>Phone</span>
+                <strong>(412) 905-9023</strong>
+                <ArrowIcon />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/goralbhatt301098"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn profile (opens in a new tab)"
+              >
+                <span>LinkedIn</span>
+                <strong>linkedin.com/in/goralbhatt301098</strong>
+                <ArrowIcon />
+              </a>
+            </address>
           </div>
-          <address className="contact-list">
-            <a href="mailto:mehtagoral2530@gmail.com">
-              <span>Email</span>
-              <strong>mehtagoral2530@gmail.com</strong>
-            </a>
-            <a href="tel:+14129059023">
-              <span>Phone</span>
-              <strong>(412) 905-9023</strong>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/goralbhatt301098"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn profile (opens in a new tab)"
-            >
-              <span>LinkedIn</span>
-              <strong>linkedin.com/in/goralbhatt301098</strong>
-            </a>
-          </address>
         </section>
       </main>
 
-      <footer className="site-footer section-wrap">
-        <a className="brand" href="#top" aria-label="Back to top">
-          <span className="brand-name">Goral Bhatt</span>
-        </a>
-        <p>Healthcare market intelligence · data analysis</p>
-        <a href="#top" className="back-to-top">Back to top ↑</a>
+      <footer className="site-footer">
+        <div className="section-wrap footer-layout">
+          <a className="footer-name" href="#top" aria-label="Back to top">
+            Goral Bhatt
+          </a>
+          <p>Healthcare market intelligence · data analysis</p>
+          <a className="footer-top" href="#top">
+            Back to top <ArrowIcon />
+          </a>
+        </div>
       </footer>
     </div>
   );
