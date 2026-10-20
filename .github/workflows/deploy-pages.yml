@@ -1,5 +1,5 @@
 
-      name: Deploy GitHub Pages
+      name: deploy-pages.yml
 
 on:
   push:
