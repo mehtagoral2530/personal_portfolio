@@ -11,38 +11,27 @@
 <style>
 /* Layout: a clinical-record portfolio. Hero with arched photo, a live "signal" strip that turns noise into a clean trace,
    then projects (TrialSignal featured in a deep band), toolkit, a phased timeline, writing and contact. */
+/* Committed single look: deep forest green with a coral signal accent. */
 :root {
-  --paper: #edf1ea;
-  --paper-2: #e1e8de;
-  --card: #f7f9f4;
-  --ink: #17322a;
-  --muted: #536860;
-  --line: #c3cec3;
-  --accent: #d4553a;
-  --accent-ink: #fff8f4;
-  --mark: #ece08a;
-  --band-bg: #17322a;
-  --band-card: #20413a;
+  --paper: #0e1a16;
+  --paper-2: #13241e;
+  --card: #172a23;
+  --ink: #e3ece5;
+  --muted: #9bb0a6;
+  --line: #2a4239;
+  --accent: #f07c5f;
+  --accent-ink: #1a0d08;
+  --mark: #4e4a1f;
+  --band-bg: #1a3a30;
+  --band-card: #22483d;
   --band-fg: #eef3ee;
-  --band-muted: #a9bfb5;
-  --band-line: #355a4f;
+  --band-muted: #a9c2b7;
+  --band-line: #3a6457;
+  --glow: #3c7a63;
   --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
   --body: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
   --gutter: max(20px, 5vw);
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #0e1a16; --paper-2: #13241e; --card: #172a23; --ink: #e3ece5; --muted: #9bb0a6;
-    --line: #2a4239; --accent: #f07c5f; --accent-ink: #1a0d08; --mark: #4e4a1f;
-    --band-bg: #1a3a30; --band-card: #22483d; --band-fg: #eef3ee; --band-muted: #a9c2b7; --band-line: #3a6457;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --paper: #0e1a16; --paper-2: #13241e; --card: #172a23; --ink: #e3ece5; --muted: #9bb0a6;
-  --line: #2a4239; --accent: #f07c5f; --accent-ink: #1a0d08; --mark: #4e4a1f;
-  --band-bg: #1a3a30; --band-card: #22483d; --band-fg: #eef3ee; --band-muted: #a9c2b7; --band-line: #3a6457;
   color-scheme: dark;
 }
 
@@ -83,6 +72,9 @@ mark { background: linear-gradient(transparent 55%, var(--mark) 55% 92%, transpa
 .nav a:hover::after { transform: scaleX(1); }
 
 /* Hero */
+.hero { background:
+  radial-gradient(55% 60% at 88% 18%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%),
+  radial-gradient(45% 55% at 0% 90%, color-mix(in srgb, var(--glow) 35%, transparent), transparent 70%); }
 .hero > .inner { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.85fr); gap: clamp(40px, 6vw, 96px); align-items: center; padding-block: clamp(28px, 5vw, 64px) 36px; }
 .hero-copy { min-width: 0; }
 .hero-meta { color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px 18px; }
@@ -338,8 +330,8 @@ section.block { padding-block: clamp(72px, 10vw, 128px); }
 <meta property="og:title" content="Goral Bhatt · Healthcare, Product & Analytics">
 <meta property="og:description" content="Healthcare project and analytics professional. Projects, certifications, experience and writing.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#17322a">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2317322a'/%3E%3Cpath d='M4 17h6l2.5-7 4 13 3-9 1.5 3H28' fill='none' stroke='%23d4553a' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#0e1a16">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2317322a'/%3E%3Cpath d='M4 17h6l2.5-7 4 13 3-9 1.5 3H28' fill='none' stroke='%23f07c5f' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
